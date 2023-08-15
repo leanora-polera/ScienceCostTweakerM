@@ -1,3 +1,5 @@
+local sctmlibrt = require("sctmlibrt")
+
 for index, force in pairs(game.forces) do
 	force.reset_recipes()
 	force.reset_technologies()
@@ -9,10 +11,10 @@ for index, force in pairs(game.forces) do
 			force.recipes["sct-lab-t2"].enabled = true
 		end
 
-		force.recipes["sct-t2-instruments"].enabled = true
-		force.recipes["sct-t2-microcircuits"].enabled = true
-		force.recipes["sct-t2-micro-wafer"].enabled = true
-		force.recipes["sct-t2-wafer-stamp"].enabled = true
-		force.recipes["sct-t2-reaction-nodes"].enabled = true
+		sctmlibrt.enable_recipe(force.recipes, "sct-t2-instruments")
+		sctmlibrt.enable_recipe(force.recipes, "sct-t2-microcircuits")
+		sctmlibrt.enable_recipe(force.recipes, "sct-t2-micro-wafer")
+		sctmlibrt.enable_recipe(force.recipes, "sct-t2-wafer-stamp")
+		sctmlibrt.enable_recipe(force.recipes, "sct-t2-reaction-nodes")
 	end
 end

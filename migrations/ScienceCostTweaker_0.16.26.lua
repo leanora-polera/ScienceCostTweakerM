@@ -1,13 +1,13 @@
+local sctmlibrt = require("sctmlibrt")
+
 for index, force in pairs(game.forces) do
 	force.reset_recipes()
 	force.reset_technologies()
 
 	if force.technologies["gardens"] and force.technologies["gardens"].researched then
-		if force.recipes["sct-bio-science-pack"] then
-			force.recipes["sct-bio-science-pack"].enabled = true
-		end
-		force.recipes["sct-bio-ground-sample"].enabled = true
-		force.recipes["sct-bio-sample-scaffold"].enabled = true
-		force.recipes["sct-bio-sample-filling"].enabled = true
+		sctmlibrt.enable_recipe(force.recipes, "sct-bio-science-pack")
+		sctmlibrt.enable_recipe(force.recipes, "sct-bio-ground-sample")
+		sctmlibrt.enable_recipe(force.recipes, "sct-bio-sample-scaffold")
+		sctmlibrt.enable_recipe(force.recipes, "sct-bio-sample-filling")
 	end
 end
